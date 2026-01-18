@@ -15,11 +15,10 @@ body {
     color: var(--text-dark);
 }
 
-/* ===== Top Navbar ===== */
 .top-nav {
     width: 100%;
     background: var(--dusk-blue);
-    padding: 12px 0;
+    padding: 18px 0;
 }
 
 .top-nav ul {
@@ -47,7 +46,6 @@ body {
     padding-bottom: 4px;
 }
 
-/* ===== Layout Container ===== */
 .container {
     display: flex;
     max-width: 1200px;
@@ -58,7 +56,6 @@ body {
     border-radius: 8px;
 }
 
-/* ===== Sidebar ===== */
 .sidebar {
     width: 260px;
     position: sticky;
@@ -295,5 +292,83 @@ body {
     padding-right: 30px;
     border-right: 1px solid #000000;
 } */
+/* ===== Publications Card View ===== */
+.pub-section {
+    margin-bottom: 25px;
+}
+
+/* Summary row */
+.pub-section summary {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--dusk-blue);
+    cursor: pointer;
+    list-style: none;
+    padding: 10px 0;
+}
+
+.pub-section summary::-webkit-details-marker {
+    display: none;
+}
+
+.pub-section summary::before {
+    content: "▸ ";
+    color: var(--dusty-denim);
+    font-weight: bold;
+}
+
+.pub-section[open] summary::before {
+    content: "▾ ";
+}
+
+/* Card effect when expanded */
+.pub-section[open] {
+    background: var(--bg-light);
+    border: 1px solid var(--border-light);
+    border-radius: 6px;
+    padding: 15px 20px;
+}
+
+
+/* Publication list inside card */
+.pub-list {
+    margin-top: 15px;
+    padding-left: 20px;
+}
+
+.pub-list li {
+    margin-bottom: 18px;
+    line-height: 1.6;
+}
+
+/* Links */
+.pub-list a {
+    font-weight: 500;
+    margin-right: 10px;
+    color: var(--dusk-blue);
+}
+
+.pub-list a:hover {
+    color: var(--dusty-denim);
+    text-decoration: underline;
+}
+
+.no-pub {
+    font-style: italic;
+    color: #666;
+    margin-top: 10px;
+}
+
+
+.year-filter {
+    margin: 15px 0 25px;
+}
+
+.year-filter select {
+    padding: 5px 8px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid var(--border-light);
+}
 
 

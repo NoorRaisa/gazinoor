@@ -1,37 +1,44 @@
 <?php include 'header.php'; ?>
 <?php include 'sidebar.php'; ?>
+<?php
+
+require_once __DIR__ . '/data/awards_data.php';
+require_once __DIR__ . '/data/education_data.php';
+
+?>
+
 
 <main class="content">
 
     <h2>Education</h2>
 
-    <h4>B.Sc. in Computer Science and Engineering</h4>
+<?php foreach ($education as $edu): ?>
+    <h4><?= htmlspecialchars($edu['degree']) ?></h4>
     <ul>
         <li>
-            Ahsanullah University of Science and Technology (AUST), Dhaka, Bangladesh.
+            <?= htmlspecialchars($edu['institution']) ?>,
+            <?= htmlspecialchars($edu['location']) ?>
+            <?= !empty($edu['duration']) ? '(' . htmlspecialchars($edu['duration']) . ')' : '' ?>
         </li>
-        <li>
-            <strong>CGPA:</strong> 3.975 / 4.000 
-        </li>
-        <li>
-            <strong>1<sup>st</sup></strong> in Merit Position
-        </li>
-        <li>
-            <strong>Thesis title:</strong> A Privacy-Aware Decentralized Framework for Intellectual Property Preservation and Trading Using Private Blockchain, IPFS, and NFTs
-        </li>
-    </ul>
 
-    <h4> Higher Secondary Certificate </h4>
-    <ul>
-        <li>Ideal School and College, Dhaka, Bangladesh</li>
-        <li><strong>GPA:</strong> 5.00 / 5.00</li>
-    </ul>
+        <?php if (!empty($edu['cgpa'])): ?>
+            <li><strong>CGPA:</strong> <?= htmlspecialchars($edu['cgpa']) ?></li>
+        <?php endif; ?>
 
-    <h4> Secondary School Certificate </h4>
-    <ul>
-        <li>Willes Little Flower School and College, Dhaka, Bangladesh</li>
-        <li><strong>GPA:</strong> 5.00 / 5.00</li>
+        <?php if (!empty($edu['position'])): ?>
+            <li><strong><?= htmlspecialchars($edu['position']) ?></strong></li>
+        <?php endif; ?>
+
+        <?php if (!empty($edu['thesis'])): ?>
+            <li><strong>Thesis title:</strong> <?= htmlspecialchars($edu['thesis']) ?></li>
+        <?php endif; ?>
+
+        <?php if (!empty($edu['gpa'])): ?>
+            <li><strong>GPA:</strong> <?= htmlspecialchars($edu['gpa']) ?></li>
+        <?php endif; ?>
     </ul>
+<?php endforeach; ?>
+
 
     <!-- <h3>Additional Certification</h3>
     <ul>
@@ -43,15 +50,21 @@
     </ul> -->
 
     <h3>Awards</h3>
-    <ul>
-        <li>
-            <strong>Dean’s List of Honors</strong> (B.Sc. in CSE)
-        </li>
-        <li>
-            Half and Full Tuition Fee Awards for Seven Consecutive Semesters
-        </li>
-        
-    </ul>
+
+    <?php if (!empty($awards)): ?>
+        <ul>
+            <?php foreach ($awards as $award): ?>
+                <li>
+                    <strong><?= htmlspecialchars($award['title'] ?? '') ?></strong>
+                    <?php if (!empty($award['description'])): ?>
+                        (<?= htmlspecialchars($award['description']) ?>)
+                    <?php endif; ?>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php else: ?>
+        <p class="no-pub">No awards available at this time.</p>
+    <?php endif; ?>
 
 </main>
 
