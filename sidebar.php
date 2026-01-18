@@ -1,5 +1,5 @@
 <aside class="sidebar">
-    <img src="images/img1.jpeg" alt="Profile Photo" class="profile-img">
+    <img src="images/3.jpg" alt="Profile Photo" class="profile-img">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <h2>Gazi Maliha Raisa Noor</h2>
