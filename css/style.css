@@ -118,7 +118,6 @@ body {
     text-decoration: underline;
 }
 
-/* ===== Main Content ===== */
 .content {
     flex: 1;
     font-size: 15px;
@@ -241,7 +240,6 @@ body {
         border-bottom: 1px solid #000000;
     }
 }
-/* ===== Footer ===== */
 .site-footer {
     text-align: center;
     padding: 15px 10px;
@@ -303,7 +301,7 @@ body {
     padding-right: 30px;
     border-right: 1px solid #000000;
 } */
-/* ===== Publications Card View ===== */
+/*Publications Card View*/
 .pub-section {
     margin-bottom: 25px;
 }
@@ -415,13 +413,17 @@ body {
 
 .edu-list ul {
     list-style: none;
-    padding-left: 10px;
+    padding-left: 16px;     
     margin-top: 3px;
+}
+
+.edu-list ul li {
+    text-indent: -20px;    
 }
 
 .edu-list ul li::before {
     content: "– ";
-    margin-right: 2px;
+    margin-right: 4px;
 }
 
 
