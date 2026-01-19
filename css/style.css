@@ -55,12 +55,16 @@ body {
     border-radius: 8px;
 }
 
+
+
+
 .sidebar {
     width: 260px;
     position: sticky;
     top: 40px;
     align-self: flex-start;
 }
+
 
 .profile-img {
     width: 220px;
@@ -123,6 +127,7 @@ body {
     font-size: 15px;
     line-height: 1.7;
 }
+
 
 .content h2,
 .content h3 {
@@ -425,6 +430,85 @@ body {
     content: "– ";
     margin-right: 4px;
 }
+/* --- Hamburger Logic --- */
 
+/* Hide the checkbox */
+.nav-toggle {
+    display: none;
+}
 
+/* Style the hamburger button (hidden on desktop) */
+.nav-toggle-label {
+    display: none;
+    cursor: pointer;
+    padding: 1rem;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    z-index: 1001;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    display: block;
+    background: var(--text-light);
+    height: 2px;
+    width: 25px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    content: '';
+    position: absolute;
+}
+
+.nav-toggle-label span::before { bottom: 8px; }
+.nav-toggle-label span::after { top: 8px; }
+
+/* --- Mobile Specific Styles --- */
+@media (max-width: 768px) {
+    .nav-toggle-label {
+        display: block; /* Show hamburger */
+    }
+
+    .top-nav {
+        position: relative;
+        height: 60px; /* Fixed height for mobile header */
+    }
+
+    .top-nav ul {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Hide off-screen */
+        width: 250px;
+        height: 100vh;
+        background: var(--dusk-blue);
+        flex-direction: column; /* Stack vertically */
+        padding-top: 80px !important;
+        margin-left: 0 !important;
+        transition: right 0.4s ease;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+        z-index: 1000;
+        gap: 20px;
+    }
+
+    /* When checkbox is checked, slide menu in */
+    .nav-toggle:checked ~ ul {
+        right: 0;
+    }
+
+    /* Animate hamburger to 'X' when open */
+    .nav-toggle:checked ~ .nav-toggle-label span { background: transparent; }
+    .nav-toggle:checked ~ .nav-toggle-label span::before { transform: rotate(45deg); bottom: 0; }
+    .nav-toggle:checked ~ .nav-toggle-label span::after { transform: rotate(-45deg); top: 0; }
+
+    /* Fix the Brand name alignment on mobile */
+    .nav-brand {
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+    }
+}
 
