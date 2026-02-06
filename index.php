@@ -63,11 +63,11 @@ if (!empty($activities)) {
     <?php endif; ?>
 
     <div class="cv-buttons">
-        <a href="files/GaziNoor_CV.pdf" target="_blank" class="btn btn-outline">
+        <a href="files/GaziNoor_CV.pdf?v=<?php echo filemtime('files/GaziNoor_CV.pdf'); ?>" target="_blank" class="btn btn-outline">
             View CV
         </a>
 
-        <a href="files/GaziNoor_CV.pdf" download class="btn btn-solid">
+        <a href="files/GaziNoor_CV.pdf?v=<?php echo filemtime('files/GaziNoor_CV.pdf'); ?>" download class="btn btn-solid">
             Download CV
         </a>
     </div>
